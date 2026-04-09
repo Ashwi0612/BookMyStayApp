@@ -8,6 +8,5 @@ public class BookMyStayApp {
         System.out.println("   Hotel Booking System v1.0");
         System.out.println("====================================");
 
-        // Application ends
     }
 }
