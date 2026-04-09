@@ -2,35 +2,39 @@ public class BookMyStayApp {
 
     public class BookMyStayApp {
 
-        public static void main(String[] args) {
+        public class BookMyStayApp {
 
-            System.out.println("====================================");
-            System.out.println("   Welcome to BookMyStayApp");
-            System.out.println("   Hotel Booking System v1.0");
-            System.out.println("====================================\n");
+            public static void main(String[] args) {
 
-            // Create room objects (Polymorphism)
-            Room single = new SingleRoom();
-            Room doubleRoom = new DoubleRoom();
-            Room suite = new SuiteRoom();
+                System.out.println("====================================");
+                System.out.println("   Welcome to BookMyStayApp");
+                System.out.println("   Hotel Booking System v1.0");
+                System.out.println("====================================\n");
 
-            // Static availability (simple variables)
-            int singleAvailable = 5;
-            int doubleAvailable = 3;
-            int suiteAvailable = 2;
+                // Room objects
+                Room single = new SingleRoom();
+                Room doubleRoom = new DoubleRoom();
+                Room suite = new SuiteRoom();
 
-            // Display details
-            System.out.println("Available Rooms:\n");
+                // Centralized Inventory
+                RoomInventory inventory = new RoomInventory();
 
-            single.displayDetails();
-            System.out.println("Available: " + singleAvailable + "\n");
+                System.out.println("Available Rooms:\n");
 
-            doubleRoom.displayDetails();
-            System.out.println("Available: " + doubleAvailable + "\n");
+                single.displayDetails();
+                System.out.println("Available: " + inventory.getAvailability("Single Room") + "\n");
 
-            suite.displayDetails();
-            System.out.println("Available: " + suiteAvailable + "\n");
+                doubleRoom.displayDetails();
+                System.out.println("Available: " + inventory.getAvailability("Double Room") + "\n");
+
+                suite.displayDetails();
+                System.out.println("Available: " + inventory.getAvailability("Suite Room") + "\n");
+
+                // Optional: show full inventory
+                System.out.println("\n--- Inventory Overview ---");
+                inventory.displayInventory();
+            }
         }
-    }
 
-}
+
+    }
